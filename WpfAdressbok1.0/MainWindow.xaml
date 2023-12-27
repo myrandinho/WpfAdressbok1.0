@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfAdressbok1._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAdressbok1._0"
+        
+        xmlns:viewmodels="clr-namespace:WpfAdressbok1._0.ViewModels"
+        xmlns:views="clr-namespace:WpfAdressbok1._0.Views"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainMenuModel}"
+        
+        mc:Ignorable="d"
+        Title="Adressbok" Height="500" Width="300">
+    
+    
+    
+    <Grid>
+
+        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+
+
+                <DataTemplate DataType="{x:Type viewmodels:MainMenuModel}">
+                    <views:MainMenuView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:AddContactModel}">
+                    <views:AddContactView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:ShowAllContactsModel}">
+                    <views:ShowAllContactsView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:ShowSpecificContactModel}">
+                    <views:ShowSpecificContactView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:UpdateContactModel}">
+                    <views:UpdateContactView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:DeleteContactModel}">
+                    <views:DeleteContactView />
+                </DataTemplate>
+                              
+                
+                
+            </ContentControl.Resources>
+            
+        </ContentControl>
+
+    </Grid>
+</Window>
